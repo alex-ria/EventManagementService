@@ -1,0 +1,2 @@
+# EventManagementService
+Event management service
