@@ -5,15 +5,71 @@ namespace EventManagementService.EmsApi.Services;
 public class EventRepository : IEventRepository
 {
     private readonly List<Event> _events = new();
+    // По идее потокобезопасность тут не нужна, т.к. потом будет использоваться база данных, 
+    // но раз рассказали про Lock, то пусть будет
     private readonly Lock _lock = new();
     private int _nextId = 0;
+
+    public EventRepository()
+    {
+        InitializeEvents();
+    }
+
+    private void InitializeEvents()
+    {
+        var now = DateTime.Now;
+        var sampleEvents = new[]
+        {
+            new Event
+            {
+                Id = ++_nextId,
+                Title = "Конференция №1",
+                Description = "Какое-то описание конференции",
+                StartAt = now.AddDays(7),
+                EndAt = now.AddDays(7).AddHours(8)
+            },
+            new Event
+            {
+                Id = ++_nextId,
+                Title = "Вебинар №1",
+                Description = "Какое-то описание вебинара",
+                StartAt = now.AddDays(1),
+                EndAt = now.AddDays(1).AddHours(2)
+            },
+            new Event
+            {
+                Id = ++_nextId,
+                Title = "Вебинар №2",
+                Description = "Еще одно описание вебинара",
+                StartAt = now.AddDays(3),
+                EndAt = now.AddDays(3).AddHours(3)
+            },
+            new Event
+            {
+                Id = ++_nextId,
+                Title = "Конференция №2",
+                Description = "Еще какая-то конференция",
+                StartAt = now.AddDays(5),
+                EndAt = now.AddDays(5).AddHours(8)
+            },
+            new Event
+            {
+                Id = ++_nextId,
+                Title = "Просто встреча",
+                Description = "Просто какая-то встреча не пойми с кем",
+                StartAt = now.AddDays(14),
+                EndAt = now.AddDays(14).AddHours(2)
+            }
+        };
+
+        _events.AddRange(sampleEvents);
+    }
 
     public Task<IEnumerable<Event>> GetAllAsync()
     {
         using (_lock.EnterScope())
         {
-            var snapshot = _events.OrderBy(e => e.Id).ToList();
-            return Task.FromResult((IEnumerable<Event>)snapshot);
+            return Task.FromResult((IEnumerable<Event>)_events.ToList());
         }
     }
 
