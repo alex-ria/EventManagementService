@@ -1,2 +1,2 @@
-public record EventResponse(int Id, string Title,
+public record EventResponseDto(int Id, string Title,
     string? Description, DateTime StartAt, DateTime EndAt);

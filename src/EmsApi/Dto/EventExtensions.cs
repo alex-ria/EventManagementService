@@ -2,9 +2,9 @@ using EventManagementService.EmsApi.Models;
 
 public static class EventExtensions
 {
-    public static EventResponse ToEventResponse(this Event evt)
+    public static EventResponseDto ToEventResponse(this Event evt)
     {
-        return new EventResponse(
+        return new EventResponseDto(
             evt.Id,
             evt.Title,
             evt.Description,
@@ -13,12 +13,12 @@ public static class EventExtensions
         );
     }
 
-    public static IEnumerable<EventResponse> ToEventResponses(this IEnumerable<Event> events)
+    public static IEnumerable<EventResponseDto> ToEventResponses(this IEnumerable<Event> events)
     {
         return events.Select(e => e.ToEventResponse());
     }
 
-    public static Event ToEvent(this EventRequest request)
+    public static Event ToEvent(this EventRequestDto request)
     {
         return new Event
         {

@@ -30,7 +30,7 @@ cd EventManagementService
 ### 2. Восстановить зависимости
 
 ```bash
-cd EmsApi
+cd src/EmsApi
 dotnet restore
 ```
 
@@ -70,4 +70,7 @@ dotnet run
 - Описание: удаляет событие по id.
 - Параметры: `id`.
 - Ответ: 200 OK при успешном удалении или 404 если событие не найдено.
+
+
+
 

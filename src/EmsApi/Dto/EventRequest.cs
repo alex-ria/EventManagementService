@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-public record EventRequest : IValidatableObject
+public record EventRequestDto : IValidatableObject
 {
     [Required]
     public string Title { get; init; } = string.Empty;

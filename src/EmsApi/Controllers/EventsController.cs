@@ -14,7 +14,7 @@ public class EventsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<EventResponse>>> GetEvents()
+    public async Task<ActionResult<IEnumerable<EventResponseDto>>> GetEvents()
     {
         try
         {
@@ -32,7 +32,7 @@ public class EventsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<EventResponse>> GetEventById(int id)
+    public async Task<ActionResult<EventResponseDto>> GetEventById(int id)
     {
         try
         {
@@ -49,7 +49,7 @@ public class EventsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<EventResponse>> CreateEvent([FromBody] EventRequest request)
+    public async Task<ActionResult<EventResponseDto>> CreateEvent([FromBody] EventRequestDto request)
     {
         try
         {
@@ -69,7 +69,7 @@ public class EventsController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<EventResponse>> UpdateEvent(int id, [FromBody] EventRequest request)
+    public async Task<ActionResult<EventResponseDto>> UpdateEvent(int id, [FromBody] EventRequestDto request)
     {
         try
         {
