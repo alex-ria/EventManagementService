@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    },
+    "yaml.schemas": {
+        "file:///c%3A/Users/alexr/.vscode/extensions/continue.continue-1.2.21-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/alexr/.vscode/extensions/continue.continue-1.2.17-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/alexr/.vscode/extensions/continue.continue-1.3.33-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c:/Users/alexr/.vscode/extensions/continue.continue-1.2.21-win32-x64/config-yaml-schema.json": "file:///d%3A/Yandex/EventManagementService/.continue/agents/new-config.yaml",
+        "file:///c:/Users/alexr/.vscode/extensions/continue.continue-1.3.33-win32-x64/config-yaml-schema.json": "file:///c%3A/Users/alexr/.continue/config.yaml"
+    }
+}
